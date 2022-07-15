@@ -9,6 +9,13 @@ text-align:center;
     overflow: auto;
 }
 
+.navbar b{
+	width: 70%;
+	background-color: #FFFFFF;
+	overflow: auto;
+	text-align: left;
+}
+
 /* Navigation links */
 .navbar a {
     float: left;
@@ -52,7 +59,7 @@ li {
 }
 
 .button {
-background-color: coral;
+  background-color: coral;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
