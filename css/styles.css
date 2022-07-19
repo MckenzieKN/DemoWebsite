@@ -20,10 +20,10 @@ text-align:center;
 .navbar a {
     float: left;
     padding: 12px;
-    color: white;
+    color: black;
     text-decoration: none;
     font-size: 25px;
-    width: 31%;
+    width: 22%;
     /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
     text-align: center;
     /* If you want the text to be centered */
@@ -31,12 +31,12 @@ text-align:center;
 
 /* Add a background color on mouse-over */
 .navbar a:hover {
-    background-color: #FFFFFF;
+    background-color: #FFA500;
 }
 
 /* Style the current/active link */
 .navbar a:active {
-    background-color:#FFFFFF;
+    background-color:#FFD802;
 }
 
 
@@ -54,7 +54,7 @@ li {
     color: white;
     font-size: 1.5rem;
     font-weight: bold;
-	text-align: center;
+	text-align: left;
     background-color: #414141;
 }
 
@@ -88,3 +88,4 @@ button:hover {
 	width:10%;
 	height: 200px;
 }
+
