@@ -15,7 +15,10 @@ var unch;
 var ch;
 var answer2 = 0;
 var answer3 = 0;
-var answer4 = new Array();
+var answer4 = 0;
+var answer5 = 0;
+var answer6 = 0;
+var redem = 0;
 
 function preload(){
 	imgRedB = loadImage('data/redBucket.jpg');
@@ -75,6 +78,13 @@ function mousePressed(){
 			reset();
 			question++;
 			questionSix();	
+		} else if(question == 6){
+			reset();
+			question++;
+			redemption();
+		} else {
+			reset();
+			text("You scored a 93% on the quiz. Return to the home page", 50, 50);
 		}
 	}
 	
@@ -139,8 +149,99 @@ function mousePressed(){
 	
 	//checking question 4
 	if(mouseX > 780 && mouseX < 880 && mouseY > 650 && mouseY < 680 && question == 4){
-
+		text("correct", 650, 665);
+		correctAnswers++;
 	}
+	
+	
+	//Question 5
+	if(mouseX > 50 && mouseX < 80 && mouseY > 100 && mouseY < 130 && question == 5){
+		image(rbPick, 50, 100, 30, 30);
+		answer5 = 0;
+	} else if(mouseX > 50 && mouseX < 80 && mouseY > 150 && mouseY < 180 && question == 5){
+		image(rbPick, 50, 150, 30, 30);
+		answer5 = 0;
+	} else if(mouseX > 50 && mouseX < 80 && mouseY > 200 && mouseY < 230 && question == 5){
+		image(rbPick, 50, 200, 30, 30);
+		answer5 = 0;
+	} else if(mouseX > 50 && mouseX < 80 && mouseY > 250 && mouseY < 280 && question == 5){
+		image(rbPick, 50, 250, 30, 30);
+		answer5 = 1;
+	}
+	
+	//Question 5 checking/hitting the submit button
+	if(mouseX > 780 && mouseX < 880 && mouseY > 650 && mouseY < 680 && question == 5){
+		if(answer5 == 1){
+			text("correct", 650, 665);
+			correctAnswers++;
+		} else {
+			text("incorrect", 650, 665);
+		}
+	}
+	
+	//Question 6
+	if(mouseX > 50 && mouseX < 80 && mouseY > 100 && mouseY < 130 && question == 6){
+		image(rbPick, 50, 100, 30, 30);
+		answer6 = 0;
+	} else if(mouseX > 50 && mouseX < 80 && mouseY > 150 && mouseY < 180 && question == 6){
+		image(rbPick, 50, 150, 30, 30);
+		answer6 = 0;
+	} else if(mouseX > 50 && mouseX < 80 && mouseY > 200 && mouseY < 230 && question == 6){
+		image(rbPick, 50, 200, 30, 30);
+		answer6 = 1;
+	} else if(mouseX > 50 && mouseX < 80 && mouseY > 250 && mouseY < 280 && question == 6){
+		image(rbPick, 50, 250, 30, 30);
+		answer6 = 0;
+	}
+	
+	//Question 6 checking/hitting the submit button
+	if(mouseX > 780 && mouseX < 880 && mouseY > 650 && mouseY < 680 && question == 6){
+		if(answer6 == 1){
+			text("correct", 650, 665);
+			correctAnswers++;
+		} else {
+			text("incorrect", 650, 665);
+		}
+	}
+	
+	
+	//Question redem
+	if(mouseX > 50 && mouseX < 80 && mouseY > 100 && mouseY < 130 && question == 7){
+		image(rbPick, 50, 100, 30, 30);
+		redem = 0;
+	} else if(mouseX > 50 && mouseX < 80 && mouseY > 150 && mouseY < 180 && question == 7){
+		image(rbPick, 50, 150, 30, 30);
+		redem = 0;
+	} else if(mouseX > 50 && mouseX < 80 && mouseY > 200 && mouseY < 230 && question == 7){
+		image(rbPick, 50, 200, 30, 30);
+		redem = 1;
+	} else if(mouseX > 50 && mouseX < 80 && mouseY > 250 && mouseY < 280 && question == 7){
+		image(rbPick, 50, 250, 30, 30);
+		redem = 0;
+	} else if(mouseX > 50 && mouseX < 80 && mouseY > 300 && mouseY < 230 && question == 7){
+		image(rbPick, 50, 300, 30, 30);
+		redem = 0;
+	} else if(mouseX > 50 && mouseX < 80 && mouseY > 350 && mouseY < 280 && question == 7){
+		image(rbPick, 50, 350, 30, 30);
+		redem = 0;
+	} else if(mouseX > 50 && mouseX < 80 && mouseY > 400 && mouseY < 230 && question == 7){
+		image(rbPick, 50, 400, 30, 30);
+		redem = 0;
+	} else if(mouseX > 50 && mouseX < 80 && mouseY > 450 && mouseY < 280 && question == 7){
+		image(rbPick, 50, 450, 30, 30);
+		redem = 0;
+	}
+	
+	//Question redem checking/hitting the submit button
+	if(mouseX > 780 && mouseX < 880 && mouseY > 650 && mouseY < 680 && question == 7){
+		if(redem == 1){
+			text("correct", 650, 665);
+			correctAnswers++;
+		} else {
+			text("incorrect", 650, 665);
+		}
+	}
+	
 	
 }
 
@@ -178,6 +279,51 @@ function questionFour(){
 	text("Has protruding nails", 85, 276);
 	text("Has writing on it", 85, 327);
 	text("Has broken or loose boards", 85, 378);
+}
+
+function questionFive(){
+	text("What should be placed between the pallet and the product?", 50, 50);
+	image(rb, 50, 100, 30, 30);
+	image(rb, 50, 150, 30, 30);
+	image(rb, 50, 200, 30, 30);
+	image(rb, 50, 250, 30, 30);
+	text("As long as it is 18 in. from the wall it is good", 85, 123);
+	text("A plant", 85, 174);
+	text("Cardboard", 85, 225);
+	text("A Slip Sheet", 85, 276);
+}
+
+function questionSix(){
+	text("Complete the following requirement for receiving ingredients:", 50, 50);
+	text("All incoming ingredients must be checked for ________ _______ and COAs before use.", 50, 75);
+	image(rb, 50, 100, 30, 30);
+	image(rb, 50, 150, 30, 30);
+	image(rb, 50, 200, 30, 30);
+	image(rb, 50, 250, 30, 30);
+	text("signed documentation from a manager", 85, 123);
+	text("proper SDSs", 85, 174);
+	text("proper labeling", 85, 225);
+	text("payment documentation", 85, 276);
+}
+
+function redemption(){
+	text("Redemption: What color brush can be used for magnets?", 50, 50);
+	image(rb, 50, 100, 30, 30);
+	image(rb, 50, 150, 30, 30);
+	image(rb, 50, 200, 30, 30);
+	image(rb, 50, 250, 30, 30);
+	image(rb, 50, 300, 30, 30);
+	image(rb, 50, 350, 30, 30);
+	image(rb, 50, 400, 30, 30);
+	image(rb, 50, 450, 30, 30);
+	text("Red", 85, 123);
+	text("Blue", 85, 174);
+	text("Orange", 85, 225);
+	text("Yellow", 85, 276);
+	text("Black", 85, 327);
+	text("Grey", 85, 378);
+	text("White", 85, 429);
+	text("Green", 85, 480);
 }
 
 
