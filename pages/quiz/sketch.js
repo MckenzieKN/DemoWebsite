@@ -19,6 +19,14 @@ var answer4 = 0;
 var answer5 = 0;
 var answer6 = 0;
 var redem = 0;
+var red = false;
+var white = false;
+var gray = false;
+var yellow = false;
+var black = false;
+
+var flour;
+var sock;
 
 function preload(){
 	imgRedB = loadImage('data/redBucket.jpg');
@@ -31,6 +39,8 @@ function preload(){
 	rbPick = loadImage('data/rbPick.png');
 	unch = loadImage('data/unchecked.png');
 	ch = loadImage('data/checked.png');
+	flour = loadImage('data/flour.png');
+	sock = loadImage('data/sock.jpeg');
 }
 
 function setup(){
@@ -54,9 +64,95 @@ function draw(){
 	text("Submit", 793, 675);
 	rect(890, 650, 100, 30);
 	text("Next", 915, 675);
+
+}
+
+function redBox(){
+	if(red == false){
+		image(imgRedB, 50, 50, 150, 150);
+		red = true;
+	} else {
+		red = false;
+		image(ch, 50, 50, 40, 40);
+	}
+}
+
+function whiteBox(){
+	if(white == false){
+		image(imgWhiteB, 250, 50, 150, 150);
+		white = true;
+	} else {
+		white = false;
+		image(ch, 250, 50, 40, 40);
+	}
+}
+
+function grayBox(){
+	if(gray == false){
+		image(imgGreyB, 450, 50, 150, 150);
+		gray = true;
+	} else {
+		gray = false;
+		image(ch, 450, 50, 40, 40);
+	}
+}
+
+function yellowBox(){
+	if(yellow == false){
+		image(imgYellowB, 620, 50, 150, 150);
+		yellow = true;
+	} else {
+		yellow = false;
+		image(ch, 620, 50, 40, 40);
+	}
+}
+
+function blackBox(){
+	if(black == false){
+		image(imgBlackB, 770, 50, 150, 150);
+		black = true;
+	} else {
+		black = false;
+		image(ch, 770, 50, 40, 40);
+	}
 }
 
 function mousePressed(){
+	if(mouseX < 200 && mouseX > 50 && mouseY > 50 && mouseY < 200 && question == 1){
+		redBox();
+	} else if(mouseX < 400 && mouseX > 250 && mouseY > 50 && mouseY < 200 && question == 1){
+		whiteBox();
+	} else if(mouseX < 600 && mouseX > 450 && mouseY > 50 && mouseY < 200 && question == 1){
+		grayBox();
+	} else if(mouseX < 770 && mouseX > 620 && mouseY > 50 && mouseY < 200 && question == 1){
+		yellowBox();
+	} else if(mouseX < 920 && mouseX > 770 && mouseY > 50 && mouseY < 200 && question == 1){
+		blackBox();	  
+	}
+	
+	if(mouseX < 170 && mouseX > 70 && mouseY > 510 && mouseY < 610 && question == 1){
+		rect(70,510,100,100);
+		image(bp, 60, 230, 100,100);
+	 }
+	
+	if(mouseX < 280 && mouseX > 180 && mouseY > 510 && mouseY < 610 && question == 1){
+		rect(180,510,100,100);
+		image(flour, 475, 230, 100,100);
+	 }
+	
+	if(mouseX < 390 && mouseX > 290 && mouseY > 510 && mouseY < 610 && question == 1){
+		rect(290,510,100,100);
+		image(sock, 650, 230, 100,100);
+	 }
+	
+	
+	//question 1 check
+	if(mouseX > 780 && mouseX < 880 && mouseY > 650 && mouseY < 680 && question == 1){
+	   text("correct", 650, 665);
+	 }
+	
+
+
 	if(mouseX < 990 && mouseX > 890 && mouseY > 650 && mouseY < 680){
 		if(question == 1){
 			reset();
@@ -340,6 +436,8 @@ class dragdrop{
 		image(imgYellowB, 620, 50, 150, 150);
 		image(imgBlackB, 770, 50, 150, 150);
 		image(bp, 70, 510, 100, 100);
+		image(flour, 180, 510, 100, 100);
+		image(sock, 290, 510, 100, 100);
 	}
 	
 }
